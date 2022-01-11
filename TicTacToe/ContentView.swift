@@ -10,44 +10,27 @@ import SwiftUI
 struct ContentView: View {
     @State private var moves = ["","","","","","","","",""]
     @State private var endGameText = "TicTacToe"
-    private var ranges = [[]]
+    private var ranges = [(0..<3),(3..<6),(6..<9)]
     
     var body: some View {
         VStack {
-            
             Text(endGameText)
             Spacer()
-            HStack {
-                ForEach(0..<3, id: \.self) { i in
-                    XOButton(letter: $moves[i])
-                        .simultaneousGesture(
-                            TapGesture()
-                                .onEnded { _ in
-                                    print("Tap: \(i)")
-                                    playerTap(index: i)
-                                }
-                        )
+            ForEach(ranges, id: \.self) { range in
+                HStack {
+                    ForEach(range, id: \.self) { i in
+                        XOButton(letter: $moves[i])
+                            .simultaneousGesture(
+                                TapGesture()
+                                    .onEnded { _ in
+                                        print("Tap: \(i)")
+                                        playerTap(index: i)
+                                    }
+                            )
+                    }
                 }
             }
-            HStack {
-                ForEach(3..<6, id: \.self) { i in
-                    XOButton(letter: $moves[i])
-                        .onTapGesture {
-                            print("Tap: \(i)")
-                            playerTap(index: i)
-                        }
-                    
-                }
-            }
-            HStack {
-                ForEach(6..<9, id: \.self) { i in
-                    XOButton(letter: $moves[i])
-                        .onTapGesture {
-                            print("Tap: \(i)")
-                            playerTap(index: i)
-                        }
-                }
-            }
+            
             Spacer()
             Button("Reset") {
                 resetGame()
