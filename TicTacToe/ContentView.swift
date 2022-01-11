@@ -10,7 +10,7 @@ import SwiftUI
 struct ContentView: View {
     @State private var moves = ["","","","","","","","",""]
     @State private var endGameText = "TicTacToe"
-    
+    private var ranges = [[]]
     
     var body: some View {
         VStack {
@@ -20,10 +20,13 @@ struct ContentView: View {
             HStack {
                 ForEach(0..<3, id: \.self) { i in
                     XOButton(letter: $moves[i])
-                        .onTapGesture {
-                            print("Tap: \(i)")
-                            playerTap(index: i)
-                        }
+                        .simultaneousGesture(
+                            TapGesture()
+                                .onEnded { _ in
+                                    print("Tap: \(i)")
+                                    playerTap(index: i)
+                                }
+                        )
                 }
             }
             HStack {
@@ -33,6 +36,7 @@ struct ContentView: View {
                             print("Tap: \(i)")
                             playerTap(index: i)
                         }
+                    
                 }
             }
             HStack {
@@ -46,9 +50,14 @@ struct ContentView: View {
             }
             Spacer()
             Button("Reset") {
-                
+                resetGame()
             }
         }
+    }
+    
+    func resetGame() {
+        endGameText = "TicTacToe"
+        moves = ["","","","","","","","",""]
     }
     
     func playerTap(index: Int) {
