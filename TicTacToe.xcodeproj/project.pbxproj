@@ -11,6 +11,8 @@
 		7A67369D278D9259006E5356 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A67369C278D9259006E5356 /* ContentView.swift */; };
 		7A67369F278D925B006E5356 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7A67369E278D925B006E5356 /* Assets.xcassets */; };
 		7A6736A2278D925B006E5356 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7A6736A1278D925B006E5356 /* Preview Assets.xcassets */; };
+		7A6736A9278D92B8006E5356 /* XOButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A6736A8278D92B8006E5356 /* XOButton.swift */; };
+		7A6736AB278DA0E1006E5356 /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A6736AA278DA0E1006E5356 /* Utils.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -19,6 +21,8 @@
 		7A67369C278D9259006E5356 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		7A67369E278D925B006E5356 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		7A6736A1278D925B006E5356 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		7A6736A8278D92B8006E5356 /* XOButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XOButton.swift; sourceTree = "<group>"; };
+		7A6736AA278DA0E1006E5356 /* Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -53,8 +57,10 @@
 			children = (
 				7A67369A278D9259006E5356 /* TicTacToeApp.swift */,
 				7A67369C278D9259006E5356 /* ContentView.swift */,
+				7A6736A8278D92B8006E5356 /* XOButton.swift */,
 				7A67369E278D925B006E5356 /* Assets.xcassets */,
 				7A6736A0278D925B006E5356 /* Preview Content */,
+				7A6736AA278DA0E1006E5356 /* Utils.swift */,
 			);
 			path = TicTacToe;
 			sourceTree = "<group>";
@@ -139,6 +145,8 @@
 			files = (
 				7A67369D278D9259006E5356 /* ContentView.swift in Sources */,
 				7A67369B278D9259006E5356 /* TicTacToeApp.swift in Sources */,
+				7A6736A9278D92B8006E5356 /* XOButton.swift in Sources */,
+				7A6736AB278DA0E1006E5356 /* Utils.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
