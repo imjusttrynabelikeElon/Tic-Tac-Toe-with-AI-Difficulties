@@ -35,7 +35,6 @@ struct ContentView: View {
                     }
                 }
             }
-            
             Spacer()
             Button("Reset") {
                 resetGame()
@@ -60,8 +59,7 @@ struct ContentView: View {
                 gameEnded = true
                 break
             }
-        }
-        
+        }  
     }
     
     func botMove() {
