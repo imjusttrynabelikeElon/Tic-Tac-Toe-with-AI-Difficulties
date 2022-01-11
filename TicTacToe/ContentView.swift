@@ -10,11 +10,16 @@ import SwiftUI
 struct ContentView: View {
     @State private var moves = ["","","","","","","","",""]
     @State private var endGameText = "TicTacToe"
+    @State private var gameEnded = false
     private var ranges = [(0..<3),(3..<6),(6..<9)]
+    
     
     var body: some View {
         VStack {
             Text(endGameText)
+                .alert(endGameText, isPresented: $gameEnded) {
+                    Button("Reset", role: .destructive, action: resetGame)
+                }
             Spacer()
             ForEach(ranges, id: \.self) { range in
                 HStack {
@@ -49,10 +54,12 @@ struct ContentView: View {
             botMove()
         }
         
-        if checkWinner(list: moves, letter: "X") {
-            endGameText = "X has won!"
-        } else if checkWinner(list: moves, letter: "O") {
-            endGameText = "O has won!"
+        for letter in ["X", "O"] {
+            if checkWinner(list: moves, letter: letter) {
+                endGameText = "\(letter) has won!"
+                gameEnded = true
+                break
+            }
         }
         
     }
