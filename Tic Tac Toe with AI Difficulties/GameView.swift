@@ -11,7 +11,6 @@ struct GameView: View {
     
     @StateObject private var viewModel = GameViewModel()
     
-    
     var body: some View {
         GeometryReader { geometry in
             NavigationView {

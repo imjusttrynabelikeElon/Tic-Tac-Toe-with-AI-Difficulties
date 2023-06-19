@@ -21,21 +21,28 @@ final class GameViewModel: ObservableObject {
     @Published var AlertItem: alertItem?
     
     @Published var humanScore = 0
-    @Published var cpuScore = 0
-    
-    @Published var score = 0 {
-        didSet {
-            if score > 0 {
-                humanScore += 1
-            } else if score < 0 {
-                cpuScore += 1
+        @Published var cpuScore = 0
+        
+        @Published var score = 0 {
+            didSet {
+                if score > 0 {
+                    humanScore += 1
+                } else if score < 0 {
+                    cpuScore += 1
+                }
+                
+                if humanScore == 4 {
+                    AlertItem = AlertContext.gameWon
+                    resetGame()
+                } else if cpuScore == 4 {
+                    AlertItem = AlertContext.gameLost
+                    resetGame()
+                }
             }
         }
-    }
     
     
-    
-    
+ 
     // this hi hifix the amount
     // this is working with my Alerts.swift file to use that Alert code on this file.
     
@@ -55,7 +62,7 @@ final class GameViewModel: ObservableObject {
         }
         
         if checkForDraw(in: moves) {
-            AlertItem = AlertContext.Draw
+            AlertItem = AlertContext.draw
             return
         }
         isGameBoardDisabled = true
@@ -67,11 +74,11 @@ final class GameViewModel: ObservableObject {
             
             if checkWinCondition(for: .computer, in: self.moves) {
                 self.cpuScore +=  1
-                self.AlertItem = AlertContext.CpuWin
+                self.AlertItem = AlertContext.cpuWin
                 return
             }
             if checkForDraw(in: self.moves) {
-                self.AlertItem = AlertContext.Draw
+                self.AlertItem = AlertContext.draw
                 return
             }
         }
@@ -174,9 +181,13 @@ final class GameViewModel: ObservableObject {
     
     func resetGame() {
         moves = Array(repeating: nil, count: 9)
+        
+        if humanScore == 4 || cpuScore == 4 {
+            humanScore = 0
+            cpuScore = 0
+        }
     }
-    
-    
+
     
     
     
