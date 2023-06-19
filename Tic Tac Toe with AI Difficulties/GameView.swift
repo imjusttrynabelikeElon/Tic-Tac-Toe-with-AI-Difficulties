@@ -16,7 +16,7 @@ struct GameView: View {
             NavigationView {
                 VStack(alignment: .trailing) {
                     HStack {
-                        Text("Karon Bell: \(viewModel.humanScore)")
+                        Text("Player: \(viewModel.humanScore)")
                         Spacer()
                         Text("CPU: \(viewModel.cpuScore)")
                     }
